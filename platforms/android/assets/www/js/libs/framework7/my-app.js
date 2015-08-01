@@ -1,8 +1,19 @@
 // Initialize your app
-var myApp = new Framework7();
+var myApp = new Framework7({
+    swipePanel: 'right'
+});
 
 // Export selectors engine
 var $$ = Dom7;
+
+$$('.open-right-panel').on('click', function (e) {
+    // 'right' position to open Right panel
+    myApp.openPanel('right');
+});
+
+$$('.panel').on('swipe', function (e) {
+    myApp.closePanel();
+});
 
 // Add view
 var mainView = myApp.addView('.view-main', {
